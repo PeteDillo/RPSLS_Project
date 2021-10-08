@@ -56,14 +56,7 @@ class Game:
         self.play_again()                                               # reprompt play again?
 
 
-    def winner(self):
-        if self.player_one.score >= 2:
-            print("Player one has won the game!")
-        elif self.player_two.score >= 2:
-            print("Player two has won the game!")
-        pass
-
-
+   
     def play_again(self):
         choice = int(input("Do you want to play again? \n Press '1' for yes. \n Press '2' for no"))
         if choice == 1:
