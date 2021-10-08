@@ -3,7 +3,7 @@ import random
 
 class AI(Player):
     def __init__(self):
-        self.name = 'AI'
+        self.name = 'Siri'
         super().__init__()
         pass
 

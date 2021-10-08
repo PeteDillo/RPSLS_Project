@@ -22,7 +22,7 @@ class Game:
         select = int(input("Which game mode would you like to play? \n Press '1' to play Human vs AI. \n Press '2' to play Human vs Human "))
         if select != int and select < 1 and select > 2:
             self.select_game_mode()
-        if select == game_mode_one:
+        elif select == game_mode_one:
             self.player_two = AI()
         elif select == game_mode_two:
             self.player_two = Human()
@@ -59,8 +59,45 @@ class Game:
                 print(f"Scissors cuts paper! {self.player_two.name} wins this round.")
                 self.player_two.score += 1
         elif self.player_one.choice == "scissors":
-            if self.player_two.choice == " ":
-                pass
+            if self.player_two.choice == "paper":
+                print(f"Scissors cuts paper! {self.player_one.name} wins this round!")
+                self.player_one.score += 1
+            elif self.player_two.choice == "lizard":
+                print(f"Scissors decapitates lizard! {self.player_one.name} wins this round!")
+                self.player_one.score += 1
+            elif self.player_two.choice == "spock":
+                print(f"Spock smashes scissors! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+            elif self.player_two.choice == "rock":
+                print(f"Rock crushes scissors! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+        elif self.player_one.choice == "lizard":
+            if self.player_two.choice == "spock":
+                print(f"Lizard poisons spock! {self.player_one.name} wins this round!")
+                self.player_one.score += 1
+            elif self.player_two.choice == "paper":
+                print(f"Lizard eats paper! {self.player_one.name} wins this round!")
+                self.player_one.score += 1
+            elif self.player_two.choice == "rock":
+                print(f"Rock crushes lizard! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+            elif self.player_two.choice == "scissors":
+                print(f"Scissors decapitates lizard! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+        elif self.player_one.choice == "spock":
+            if self.player_two.choice == "scissors":
+                print(f"Spock smashes scissors! {self.player_one.name} wins this round!")
+                self.player_one.score += 1
+            elif self.player_two.choice == "rock":
+                print(f"Spock vaporizes rock! {self.player_one.name} wins this round!")
+                self.player_one.score += 1
+            elif self.player_two.choice == "paper":
+                print(f"Paper disaproves spock! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+            elif self.player_two.choice == "lizard":
+                print(f"Lizard poisons spock! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+                
     
     def display_winners(self):
         if (self.player_one.score == 2):
@@ -77,8 +114,8 @@ class Game:
             self.player_one.gesture_select()                            # player_one choose gesture
             self.player_two.gesture_select()                            # player_two choose gesture
             self.round_outcome()                                        # run round outcome
-        print(self.player_one.score)
-        print(self.player_two.score)                                    # print player_one and player_two score
+            print(self.player_one.score)
+            print(self.player_two.score)                                # print player_one and player_two score
         self.winner()                                                   # display winner
         self.play_again()                                               # reprompt play again?
 
