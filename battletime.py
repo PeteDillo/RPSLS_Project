@@ -28,10 +28,7 @@ class Game:
             self.player_two = AI()
             
     
-    def goes_first(self, player_one, player_two):
-        goes_first = random.choice(player_one, player_two)
-        return goes_first
-    
+
     def round_outcome(self):
         if self.player_one.choice == self.player_two.choice:
             print(f"Both players selected {self.player_one.choice}. You tied.")
@@ -61,11 +58,9 @@ class Game:
             elif self.player_two.choice == "scissors":
                 print(f"Scissors cuts paper! {self.player_two.name} wins this round.")
                 self.player_two.score += 1
-
-
-
-
-
+        elif self.player_one.choice == "scissors":
+            if self.player_two.choice == " ":
+                pass
 
     def display_winners(self):
         if (self.player_one.score == 2):
