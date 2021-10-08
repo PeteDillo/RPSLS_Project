@@ -36,3 +36,5 @@ class Game:
     
     def goes_first(self, player_one, player_two):
         random.choice(player_one, player_two)
+        self.round_count = 1
+        
