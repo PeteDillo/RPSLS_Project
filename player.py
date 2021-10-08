@@ -15,3 +15,4 @@ class Player:
         self.choice = self.gesture_list[int(input())]
         print(f"{self.name} selects {self.choice}!")
 
+    
