@@ -31,6 +31,8 @@ class Game:
         self.goes_first()
         play = True
         while self.round_count <= 0 :
+            play = False
+            return play
             pass
 
     def human_vs_AI(self, player_one, ai):
