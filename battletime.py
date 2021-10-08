@@ -28,13 +28,15 @@ class Game:
             self.human_vs_AI
             
     def human_vs_human(self, player_one, player_two):
-        pass
+        self.goes_first()
+        play = True
+        while self.round_count <= 0 :
+            pass
 
     def human_vs_AI(self, player_one, ai):
-        pass
+        self.goes_first()
     
     
     def goes_first(self, player_one, player_two):
-        random.choice(player_one, player_two)
-        self.round_count = 1
-        
+        goes_first = random.choice(player_one, player_two)
+        return goes_first
