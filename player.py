@@ -13,6 +13,7 @@ class Player:
             print(f"Press {index} for {gesture}")
             index += 1
         self.choice = self.gesture_list[int(input())]
+        self.choice.validation()
         print(f"{self.name} selects {self.choice}!")
 
     
