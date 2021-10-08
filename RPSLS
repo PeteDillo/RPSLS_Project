@@ -1,0 +1,22 @@
+Rock Paper Scissors Lizard Spock
+
+Game Rules:
+0. Say hello! (Welcome player)
+1. Display Rules
+2. Let user select game mode (Number of players or AI)
+3. display options to player
+4. pick a gesture from list
+    5. second player / AI picks
+6. compare gestures
+    7. same gestures - no winner
+    8. Declare winner of round
+9. Keep playing rounds until we can "declare winner"
+10. Declare winner!!
+
+player -
+    human
+    AI
+
+
+game board
+main
