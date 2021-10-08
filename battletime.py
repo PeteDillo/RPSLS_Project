@@ -6,7 +6,6 @@ class Game:
     def __init__(self):
         self.player_one = Human()
         self.player_two = None
-        self.round_count = 1
         
     
     def display_rule(self):
@@ -18,14 +17,15 @@ class Game:
             """Rule #3: No points for ties""")
     
     def select_game_mode(self):
-        game_mode_one = "Human vs Human" #validation
-        game_mode_two = "Human vs AI"
-        select = input("Which game mode would you like to play? ")
-        print("Human vs Human \n Human vs AI ")
+        game_mode_one = 1
+        game_mode_two = 2
+        select = int(input("Which game mode would you like to play? \n Press '1' to play Human vs AI. \n Press '2' to play Human vs Human "))
+        if select != int and select < 1 and select > 2:
+            self.select_game_mode()
         if select == game_mode_one:
-            self.player_two = Human()
-        elif select == game_mode_two:
             self.player_two = AI()
+        elif select == game_mode_two:
+            self.player_two = Human()
             
     
 
@@ -43,8 +43,8 @@ class Game:
                 print(f"Spock vaporizes rock! {self.player_two.name} wins this round.")
                 self.player_two.score += 1
             elif self.player_two.choice == "paper":
-                print(f"Paper covers rock! {self.player_two.name} wins this round.") 
-                self.player_two.score += 1   
+                print(f"Paper covers rock! {self.player_two.name} wins this round.")
+                self.player_two.score += 1  
         elif self.player_one.choice == "paper":
             if self.player_two.choice == "rock":
                 print(f"Paper covers rock! {self.player_one.name} wins this round!")
@@ -61,9 +61,42 @@ class Game:
         elif self.player_one.choice == "scissors":
             if self.player_two.choice == " ":
                 pass
-
+    
     def display_winners(self):
         if (self.player_one.score == 2):
             print(f"{self.player_one.name} wins!")
         elif (self.player_two.score == 2):
-            print(f"{self.player_two.name} wins!")             
+            print(f"{self.player_two.name} wins!")
+
+
+    def run_game(self):
+        print("Welcome to RPSLS!")                                      # welcome
+        self.display_rules()
+        self.select_game_mode()                                         # select game mode
+        while self.player_one.score < 2 and self.player_two.score < 2:
+            self.player_one.gesture_select()                            # player_one choose gesture
+            self.player_two.gesture_select()                            # player_two choose gesture
+            self.round_outcome()                                        # run round outcome
+        print(self.player_one.score)
+        print(self.player_two.score)                                    # print player_one and player_two score
+        self.winner()                                                   # display winner
+        self.play_again()                                               # reprompt play again?
+
+
+   
+    def play_again(self):
+        choice = int(input("Do you want to play again? \n Press '1' for yes. \n Press '2' for no"))
+        if choice == 1:
+            self.run_game()
+        else:
+            pass
+
+
+    def validation(self, choice):
+        if choice != int:
+            self.validation
+        elif choice < 1 or choice > 5:
+            self.validation
+        else:
+            pass
+        
