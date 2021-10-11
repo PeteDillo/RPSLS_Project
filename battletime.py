@@ -77,8 +77,8 @@ class Game:
             self.player_one.gesture_select()                            # player_one choose gesture
             self.player_two.gesture_select()                            # player_two choose gesture
             self.round_outcome()                                        # run round outcome
-        print(self.player_one.score)
-        print(self.player_two.score)                                    # print player_one and player_two score
+            print(f"Player one's score is: {self.player_one.score}")
+            print(f"Player two's score is: {self.player_two.score}")                                    # print player_one and player_two score
         self.winner()                                                   # display winner
         self.play_again()                                               # reprompt play again?
 
