@@ -4,7 +4,7 @@ import random
 
 class Game:
     def __init__(self):
-        self.player_one = Human()
+        self.player_one = Human('Andy')
         self.player_two = None
         
     
@@ -23,7 +23,7 @@ class Game:
         if select != int and select < 1 and select > 2:
             self.select_game_mode()
         elif select == game_mode_one:
-            self.player_two = AI()
+            self.player_two = AI('Siri')
         elif select == game_mode_two:
             self.player_two = Human()
             
@@ -108,7 +108,7 @@ class Game:
 
     def run_game(self):
         print("Welcome to RPSLS!")                                      # welcome
-        self.display_rules()
+        self.display_rule()
         self.select_game_mode()                                         # select game mode
         while self.player_one.score < 2 and self.player_two.score < 2:
             self.player_one.gesture_select()                            # player_one choose gesture
