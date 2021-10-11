@@ -25,7 +25,7 @@ class Game:
         elif select == game_mode_one:
             self.player_two = AI('Siri')
         elif select == game_mode_two:
-            self.player_two = Human()
+            self.player_two = Human('Mc Lovin')
             
     
 
@@ -116,12 +116,14 @@ class Game:
             self.round_outcome()                                        # run round outcome
             print(f"Player one's score is: {self.player_one.score}")
             print(f"Player two's score is: {self.player_two.score}")                                    # print player_one and player_two score
-        self.winner()                                                   # display winner
+        self.display_winners()                                                   # display winner
         self.play_again()                                               # reprompt play again?
 
 
    
     def play_again(self):
+        self.player_one.score = 0
+        self.player_two.score = 0
         choice = int(input("Do you want to play again? \n Press '1' for yes. \n Press '2' for no"))
         if choice == 1:
             self.run_game()
@@ -129,11 +131,5 @@ class Game:
             pass
 
 
-    def validation(self, choice):
-        if choice != int:
-            self.validation
-        elif choice < 1 or choice > 5:
-            self.validation
-        else:
-            pass
-        
+    
+          
