@@ -1,6 +1,7 @@
 from human import Human 
 from ai import AI
 import random
+import os
 
 class Game:
     def __init__(self):
@@ -71,6 +72,7 @@ class Game:
             elif self.player_two.choice == "paper" or self.player_two.choice == "lizard":
                 print(f"{self.player_two.choice} disaproves {self.player_one.choice}! {self.player_two.name} wins this round.")
                 self.player_two.score += 1
+        
                 
     
     def display_winners(self):
@@ -87,12 +89,13 @@ class Game:
         while self.player_one.score < 2 and self.player_two.score < 2:
             self.player_one.gesture_select()                                     # player_one choose gesture
             self.player_two.gesture_select()                                     # player_two choose gesture
-            self.round_outcome()                                                 # run round outcome
+            self.round_outcome()
+            self.clearConsole()                                                 # run round outcome
             print(f"Player one's score is: {self.player_one.score}")
             print(f"Player two's score is: {self.player_two.score}")             # print player_one and player_two score
         self.display_winners()                                                   # display winner
         self.play_again()                                                        # reprompt play again?
-
+        
 
    
     def play_again(self):
@@ -106,5 +109,9 @@ class Game:
             pass
 
 
-    
-          
+    def clearConsole(self):
+        command = 'clear'
+        if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+            command = 'cls'
+        os.system(command)
+
