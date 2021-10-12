@@ -2,13 +2,13 @@ from player import Player
 import random
 
 class AI(Player):
-    def __init__(self):
-        self.name = 'Siri'
-        super().__init__()
+    def __init__(self, name):
+        self.name = name
+        super().__init__(name)
         pass
 
-    def gesture_select(self, gesture_list):
-        self.choice = random.choice(gesture_list)
+    def gesture_select(self):
+        self.choice = random.choice(self.gesture_list)
         if(self.choice == "rock"):
             print(f"Player 2 selects {self.choice}.")
         elif(self.choice == "paper"):
@@ -20,4 +20,4 @@ class AI(Player):
         elif(self.choice == "spock"):
             print(f"Player 2 selects {self.choice}.")  
 
-
+    
