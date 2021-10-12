@@ -20,4 +20,4 @@ class AI(Player):
         elif(self.choice == "spock"):
             print(f"Player 2 selects {self.choice}.")  
 
-
+    
